@@ -1,9 +1,11 @@
 create database olympics;
 use olympics;
 select count(*) from athletesnew;
+
 # Data Under standing
 describe athletesnew;
 select * from athletesnew;
+
 # Data cleaning
 set autocommit=1;
 set sql_safe_updates=0;
@@ -51,7 +53,6 @@ select * from athletesnew where disciplines= "'judo'";
 select disciplines, avg(weight) as average_weight from athletesnew group by disciplines order by average_weight desc ;
 
 # Feature enginnering
-
 # Creating a column named "age" for upcoming analysis.
 select  case when year(birth_date) then year(current_date())-year(birth_date) end as  current_age from athletesnew group by birth_date ;
 alter table athletesnew add column age int;
